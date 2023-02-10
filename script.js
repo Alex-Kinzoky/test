@@ -1,6 +1,6 @@
-let table_data = []
+
 function make_massive(json){
-    
+    let table_data = []
     for (let i in json){
         table_data.push(
             {
@@ -15,13 +15,13 @@ function make_massive(json){
             }
         )
     }
-    
+    return table_data
 }
 
 fetch('./data_table.json')
     .then(response => response.json())
-    .then(json => make_massive(json))
-console.log(table_data[0])
+    .then(json => table_data = make_massive(json))
+console.log(table_data)
 let table_test = [
     {
         "firstName" : "Иван",
