@@ -1,4 +1,4 @@
-
+let table_data = []
 function make_massive(json){
     let table_data = []
     for (let i in json){
