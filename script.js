@@ -4,12 +4,13 @@ function make_massive(json){
     for (let i in json){
         table_data.push(json[i])
     }
-    console.log(table_data[0]["about"])
+    
 }
+
 fetch('./data_table.json')
     .then(response => response.json())
     .then(json => make_massive(json))
-
+console.log(table_data[0]["about"])
 let table_test = [
     {
         "firstName" : "Иван",
@@ -43,8 +44,7 @@ window.addEventListener('load', function () {
                 <td>${table[i]["eyeColor"]}</td>
             </tr>`
         }
-        let body_table = document.querySelector(".body-table")
-        let rows = body_table.querySelectorAll("tr")
+        let rows = table_html.querySelectorAll("tr")
         for (i=0;i<rows.length;i++){
             rows[i].addEventListener('click', print_row_info)
         }
