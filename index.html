@@ -1,0 +1,44 @@
+<!Doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <title>Test</title>
+        <link rel="stylesheet" href="style.css" />
+        <script type="text/javascript" src="data_table.json"></script>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <!--Место для кода-->
+        <div class="container">
+            <table class="table">
+                <thead class="head-table">
+                    <tr>
+                        <th class="firstname" status="no-sort">Имя</th>
+                        <th class="lastname" status="no-sort">Фамилия</th>
+                        <th class="about" status="no-sort">Описание</th>
+                        <th class="eyecolor" status="no-sort">Цвет глаз</th>
+                    </tr>
+                </thead>
+                <tbody class="body-table"></tbody>
+            </table>
+            <div class="edit-info">
+                <form class="form">
+                    <label for="First-Name">Имя</label><input type="text" id="First-Name">
+                    <label for="Last-Name">Фамилия</label><input type="text" id="Last-Name">
+                    <label for="About">Описание</label><input type="text" id="About">
+                    <label for="Eye-Color">Цвет глаз</label>
+                    <select id="Eye-Color">
+                        <option>green</option>
+                        <option>brown</option>
+                        <option>blue</option>
+                    </select>
+                    <div class="submit-buttons">
+                        <input type="button" class="submit-btn btn-cancel" value="Отменить">
+                        <input type="button" class="submit-btn btn-save" value="Сохранить">
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </body>
+</html>

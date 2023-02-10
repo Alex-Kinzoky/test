@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    display: flex;
+}
+.table{
+    width: 50vw;
+    border-collapse: collapse;
+    height: fit-content;
+}
+th{
+    border: 1px solid black;
+    width: 25%;
+}
+td{
+    border: 1px solid gray;
+}
+.edit-info{
+    padding: 20px;
+}
+.about-value{
+    border: 1px solid gray;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.form{
+    display: none;
+}
+input{
+    display: block;
+}
+select{
+    display: block;
+}
+.submit-buttons{
+    display: flex;
+}
+.submit-btn{
+    margin: 5px;
+}
