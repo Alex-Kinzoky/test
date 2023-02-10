@@ -7,7 +7,7 @@ function make_massive(json){
                 "id":json[i]["id"],
                 "name":{
                     "firsName":json[i]["name"]["firstName"],
-                    "lasName":json[i]["name"]["lastName"]
+                    "lastName":json[i]["name"]["lastName"]
                 },
                 "phone":json[i]["phone"],
                 "about":json[i]["about"],
@@ -21,7 +21,7 @@ function make_massive(json){
 fetch('./data_table.json')
     .then(response => response.json())
     .then(json => make_massive(json))
-console.log(table_data[0]["about"])
+console.log(table_data[0])
 let table_test = [
     {
         "firstName" : "Иван",
