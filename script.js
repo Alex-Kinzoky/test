@@ -37,8 +37,8 @@ window.addEventListener('load', function () {
         table_html.innerHTML = ""
         for (i=0; i< table.length; i++){
             table_html.innerHTML += `<tr id=${i}>
-                <td>${table[i]["firstName"]}</td>
-                <td>${table[i]["lastName"]}</td>
+                <td>${table[i]["name"]["firstName"]}</td>
+                <td>${table[i]["name"]["lastName"]}</td>
                 <td class="about-value">${table[i]["about"]}</td>
                 <td>${table[i]["eyeColor"]}</td>
             </tr>`
