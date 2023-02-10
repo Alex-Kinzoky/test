@@ -1,5 +1,5 @@
 function make_massive(json){
-    console.log(json)
+    alert(json)
 }
 fetch('./data_table.json')
     .then(response => {
@@ -13,7 +13,7 @@ fetch('./data_table.json')
       console.warn(err);
     });
 
-let table_data = [
+let table_test = [
     {
         "firstName" : "Иван",
         "lastName" : "Иванов",
