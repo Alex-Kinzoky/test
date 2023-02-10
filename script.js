@@ -2,16 +2,8 @@ function make_massive(json){
     alert(json[0])
 }
 fetch('./data_table.json')
-    .then(response => {
-      if (response.ok) {
-        make_massive(response.json());
-      } else {
-        throw new Error('Данные не были получены, ошибка: ' + response.status);
-      }
-    })
-    .catch(err => {
-      console.warn(err);
-    });
+    .then(response => response.json())
+    .then(json => make_massive(json))
 
 let table_test = [
     {
