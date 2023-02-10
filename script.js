@@ -2,7 +2,18 @@ let table_data = []
 function make_massive(json){
     
     for (let i in json){
-        table_data.push(json[i])
+        table_data.push(
+            {
+                "id":json[i]["id"],
+                "name":{
+                    "firsName":json[i]["name"]["firstName"],
+                    "lasName":json[i]["name"]["lastName"]
+                },
+                "phone":json[i]["phone"],
+                "about":json[i]["about"],
+                "eyeColor":json[i]["eyeColor"]
+            }
+        )
     }
     
 }
