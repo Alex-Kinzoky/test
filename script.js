@@ -1,10 +1,10 @@
 function make_massive(json){
-    alert(json)
+    alert(json[0])
 }
 fetch('./data_table.json')
     .then(response => {
       if (response.ok) {
-        return response.json();
+        make_massive(response.json());
       } else {
         throw new Error('Данные не были получены, ошибка: ' + response.status);
       }
