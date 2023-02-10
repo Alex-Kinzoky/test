@@ -1,5 +1,10 @@
+let table_data = []
 function make_massive(json){
-    alert(json[0])
+    
+    for (let i in json){
+        table_data.push(i)
+    }
+    console.log(table_data)
 }
 fetch('./data_table.json')
     .then(response => response.json())
