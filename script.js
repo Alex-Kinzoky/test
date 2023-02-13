@@ -15,15 +15,14 @@ function make_massive(json){
             }
         )
     }
+    console.log(json)
+    console.log(table_data)
     return table_data
 }
 function get_table_data(){
     fetch('./data_table.json')
     .then(response => response.json())
-    .then(json => function() {
-        console.log(json)
-        return json
-    })
+    .then(json => make_massive(json))
 }
 
 let table_test = [
@@ -98,9 +97,7 @@ window.addEventListener('load', function () {
         table[index_row]["eyeColor"] = document.querySelector("#Eye-Color").value
         print_table(table)
     }
-    let json = get_table_data()
-    console.log(json)
-    let table_data = make_massive(json.json)
+    let table_data = get_table_data()
     console.log(table_data)
     print_table(table_data) //печатаем таблицу при загрузки страницы
     let row_id = NaN
