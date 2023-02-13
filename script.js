@@ -97,7 +97,9 @@ window.addEventListener('load', function () {
         print_table(table)
     }
     let json = get_table_data()
+    console.log(json)
     let table_data = make_massive(json)
+    console.log(table_data)
     print_table(table_data) //печатаем таблицу при загрузки страницы
     let row_id = NaN
     //находим заголовки колонок и вешаем на них функцию сортировки при клике
