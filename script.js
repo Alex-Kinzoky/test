@@ -17,11 +17,14 @@ function make_massive(json){
     }
     return table_data
 }
-//function get_table_data(){
-    //fetch('./data_table.json')
-    //.then(response => response.json())
-    //.then(json =>  {return json})
-//}
+function get_table_data(){
+    fetch('./data_table.json')
+    .then(response => response.json())
+    .then(json => function() {
+        console.log(json)
+        return json
+    })
+}
 
 let table_test = [
     {
@@ -43,7 +46,6 @@ let table_test = [
         "eyeColor" : "brown"
     }
 ]
-let json = await this.fetch('./data_table.json')
 window.addEventListener('load', function () {
     //функция печати таблицы с данных массива
     function print_table(table){
@@ -96,7 +98,7 @@ window.addEventListener('load', function () {
         table[index_row]["eyeColor"] = document.querySelector("#Eye-Color").value
         print_table(table)
     }
-    
+    let json = get_table_data()
     console.log(json)
     let table_data = make_massive(json.json)
     console.log(table_data)
