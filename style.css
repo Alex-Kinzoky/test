@@ -12,6 +12,9 @@ body{
     margin: 5px;
     padding: 3px;
 }
+.active-hide{
+    background-color: #4f5861;
+}
 .container{
     display: flex;
     

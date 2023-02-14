@@ -111,13 +111,13 @@ function col_visible(btn, col_num){
     console.log(active)
     let column = document.querySelectorAll(`.${col_num}`)
     console.log(column)
-    if ("active" in active){
-        btn.classList.remove("active")
+    if ("active-hide" in active){
+        btn.classList.remove("active-hide")
         for (let i=0;i<column.length;i+=1){
             column[i].style.display = "block"
         }
     } else{
-        btn.classList.add("active")
+        btn.classList.add("active-hide")
         for (let i=0;i<column.length;i+=1){
             column[i].style.display = "none"
         }
@@ -141,6 +141,11 @@ function set_btn_func(table_data){
     button_save.addEventListener('click', function (){save_change(table_data, row_id)})
     let button_cancel = document.querySelector('.btn-cancel')
     button_cancel.addEventListener('click', print_row_info)
+
+    let hide_col_btns = document.querySelectorAll(".hide_btn")
+    for (let i=0; i<hide_col_btns.length;i+=1){
+        hide_col_btns[i].addEventListener('click', function(){col_visible(hide_col_btns[i],i)})
+    }
 }
 
 window.addEventListener('load', function () {
