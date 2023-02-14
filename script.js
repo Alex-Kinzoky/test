@@ -1,7 +1,7 @@
-function print_table(table){
+function print_table(table,start,end){
     let table_html = document.querySelector(".body-table")
     table_html.innerHTML = ""
-    for (i=0; i< table.length; i++){
+    for (i=start; i< end; i++){
         table_html.innerHTML += `<tr id=${i}>
             <td>${table[i]["name"]["firstName"]}</td>
             <td>${table[i]["name"]["lastName"]}</td>
@@ -17,6 +17,10 @@ function print_table(table){
 }
 //функция сортировки таблице по значениям колонки
 function sort_column(table, column_name, column_table){
+    let theads = document.querySelectorAll("thead")
+    for (element in theads){
+        element.setAttribute("status", "no-sort")
+    }
     let status = column_table.getAttribute("status")
     if (status == "no-sort" || status == "reverse"){
         if (column_name == "firstName" || column_name == "lastName"){
@@ -34,7 +38,7 @@ function sort_column(table, column_name, column_table){
         }
         column_table.setAttribute("status","reverse")
     }
-    print_table(table)
+    print_table(table,number_page,number_page+10)
 }
 //функция отображения данных ряда в форме редактирования
 function print_row_info(event){
@@ -55,7 +59,7 @@ function save_change(table, index_row){
     table[index_row]["phone"] = document.querySelector("#Phone").value
     table[index_row]["about"] = document.querySelector("#About").value
     table[index_row]["eyeColor"] = document.querySelector("#Eye-Color").value
-    print_table(table)
+    print_table(table,number_page,number_page+10)
 }
 function get_table_data(){
     return fetch('./data_table.json')
@@ -79,16 +83,27 @@ function get_table_data(){
         return table_data
     })
 }
+function change_page(table,new_page_btn){
+    number_page = +new_page_btn.innerHTML
+    let last_page = document.querySelector(".active")
+    last_page.classList.remove("active")
+    new_page_btn.classList.add("active")
+    print_table(table,number_page,number_page+10)
+}
 function create_btn_pages(table){
     let number_of_pages = Math.ceil(table.length/10)
     console.log(number_of_pages)
     let div_btn_pg = document.querySelector(".btn-pages")
-    for (let i = 0; i<=number_of_pages;i+=1){
+    for (let i = 1; i<=number_of_pages;i+=1){
         if (i==1){
             div_btn_pg.innerHTML += `<div class="btn-pg active">${i}</div>`
         } else{
             div_btn_pg.innerHTML += `<div class="btn-pg">${i}</div>`
         }
+    }
+    let buttons = document.querySelectorAll(".btn-pg")
+    for (element in buttons){
+        element.addEventListener('click',change_page(table,element))
     }
 }
 function set_btn_func(table_data){
@@ -113,8 +128,9 @@ function set_btn_func(table_data){
 
 window.addEventListener('load', function () {
     let row_id = NaN
+    let number_page = 0
     get_table_data().then((table_data) => {
-        print_table(table_data)
+        print_table(table_data,0,10)
         set_btn_func(table_data)
         create_btn_pages(table_data)
     })

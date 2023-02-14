@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    color: white;
+    color: #b9bdc5;
 }
 .container{
     display: flex;
@@ -11,6 +11,7 @@
     width: 50vw;
     border-collapse: collapse;
     height: fit-content;
+    margin: 10px;
     
 }
 th{
@@ -18,10 +19,12 @@ th{
     width: 20%;
     background-color: #161a1e;
     cursor: pointer;
+    padding: 2px;
 }
 td{
     border: 1px solid gray;
     background-color: #4f5861;
+    padding: 2px;
 }
 .edit-info{
     padding: 20px;
@@ -36,6 +39,8 @@ td{
 .form{
     display: none;
     background-color: #161a1e;
+    padding: 10px;
+    margin: 0 auto;
 }
 input{
     display: block;
@@ -44,6 +49,7 @@ input{
 }
 select{
     display: block;
+    background-color: #4f5861;
 }
 option{
     background-color: #161a1e;
