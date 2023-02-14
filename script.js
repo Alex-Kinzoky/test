@@ -112,7 +112,11 @@ function col_visible(btn, col_num){
     if (active=="active-hide"){
         btn.classList.remove("active-hide")
         for (let i=0;i<column.length;i+=1){
-            column[i].style.display = "block"
+            if (col_num == 3){
+                column[i].style.display = "-webkit-box"
+            } else{
+                column[i].style.display = "table-cell"
+            }
         }
     } else{
         btn.classList.add("active-hide")
