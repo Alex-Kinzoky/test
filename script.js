@@ -103,7 +103,7 @@ function create_btn_pages(table){
     }
     let buttons = document.querySelectorAll(".btn-pg")
     for (let i=0;i<buttons.length;i+=1){
-        buttons[i].addEventListener('click',change_page(table,buttons[i]))
+        buttons[i].addEventListener('click',function(){change_page(table,buttons[i])})
     }
 }
 function set_btn_func(table_data){
