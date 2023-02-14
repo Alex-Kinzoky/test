@@ -125,7 +125,7 @@ function col_visible(btn, col_num){
         }
     }
 }
-function set_btn_func(table_data){
+function set_btn_func(table_data, number_page){
     //находим заголовки колонок и вешаем на них функцию сортировки при клике
     
     let firstname = document.querySelector(".firstname")
@@ -155,7 +155,7 @@ window.addEventListener('load', function () {
     let number_page = 0
     get_table_data().then((table_data) => {
         print_table(table_data,0,10)
-        set_btn_func(table_data)
+        set_btn_func(table_data, number_page)
         create_btn_pages(table_data)
     })
     
