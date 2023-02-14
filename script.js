@@ -85,7 +85,7 @@ function get_table_data(){
 }
 function change_page(table,new_page_btn){
     console.log(new_page_btn)
-    number_page = +new_page_btn.innerHTML
+    number_page = +new_page_btn.innerHTML -1
     let last_page = document.querySelector(".active")
     last_page.classList.remove("active")
     new_page_btn.classList.add("active")
