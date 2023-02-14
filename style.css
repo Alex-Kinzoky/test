@@ -51,6 +51,9 @@ td{
     padding: 10px;
     margin: 0 auto;
 }
+label{
+    margin: 0 3px;
+}
 input{
     display: block;
     border: 1px solid white;
@@ -65,9 +68,11 @@ option{
 }
 .submit-buttons{
     display: flex;
+    justify-content: space-evenly;
 }
 .submit-btn{
     margin: 5px;
+    padding: 3px;
     border: none;
     background-color: #4f5861;
     border-radius: 5px;
@@ -81,6 +86,7 @@ option{
     padding: 5px;
     margin: 5px;
     background-color: #161a1e;
+    cursor: pointer;
 }
 .active{
     background-color: #4f5861;

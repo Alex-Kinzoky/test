@@ -108,7 +108,9 @@ function create_btn_pages(table){
 }
 function col_visible(btn, col_num){
     let active = btn.classList
+    console.log(active)
     let column = document.querySelectorAll(`.${col_num}`)
+    console.log(column)
     if ("active" in active){
         btn.classList.remove("active")
         for (let i=0;i<column.length;i+=1){
