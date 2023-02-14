@@ -3,11 +3,11 @@ function print_table(table,start,end){
     table_html.innerHTML = ""
     for (i=start; i< end; i++){
         table_html.innerHTML += `<tr id=${i}>
-            <td class="0">${table[i]["name"]["firstName"]}</td>
-            <td class="1">${table[i]["name"]["lastName"]}</td>
-            <td class="2">${table[i]["phone"]}</td>
-            <td class="about-value 3">${table[i]["about"]}</td>
-            <td class="4"><div style="background-color:${table[i]["eyeColor"]}; width:20px; height:20px"></div></td>
+            <td class="num0">${table[i]["name"]["firstName"]}</td>
+            <td class="num1">${table[i]["name"]["lastName"]}</td>
+            <td class="num2">${table[i]["phone"]}</td>
+            <td class="about-value num3">${table[i]["about"]}</td>
+            <td class="num4"><div style="background-color:${table[i]["eyeColor"]}; width:20px; height:20px"></div></td>
         </tr>`
     }
     let rows = table_html.querySelectorAll("tr")
@@ -109,7 +109,7 @@ function create_btn_pages(table){
 function col_visible(btn, col_num){
     let active = btn.classList
     console.log(active)
-    let column = document.querySelectorAll(`.${col_num}`)
+    let column = document.querySelectorAll(`.num${col_num}`)
     console.log(column)
     if ("active-hide" in active){
         btn.classList.remove("active-hide")
