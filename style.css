@@ -1,21 +1,26 @@
 *{
     margin: 0;
     padding: 0;
+    color: white;
 }
 .container{
     display: flex;
+    background-color: #0a0a0a;
 }
 .table{
     width: 50vw;
     border-collapse: collapse;
     height: fit-content;
+    
 }
 th{
-    border: 1px solid black;
-    width: 25%;
+    border: 1px solid #cacaca;
+    width: 20%;
+    background-color: #161a1e;
 }
 td{
     border: 1px solid gray;
+    background-color: #4f5861;
 }
 .edit-info{
     padding: 20px;
@@ -29,16 +34,25 @@ td{
 }
 .form{
     display: none;
+    background-color: #161a1e;
 }
 input{
     display: block;
+    border: 1px solid white;
+    background-color: #4f5861;
 }
 select{
     display: block;
+}
+option{
+    background-color: #161a1e;
 }
 .submit-buttons{
     display: flex;
 }
 .submit-btn{
     margin: 5px;
+    border: none;
+    background-color: #4f5861;
+    border-radius: 5px;
 }
