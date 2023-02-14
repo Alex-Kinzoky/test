@@ -18,8 +18,8 @@ function print_table(table,start,end){
 //функция сортировки таблице по значениям колонки
 function sort_column(table, column_name, column_table){
     let theads = document.querySelectorAll("thead")
-    for (element in theads){
-        element.setAttribute("status", "no-sort")
+    for (let i=0;i<theads.length;i+=1){
+        theads[i].setAttribute("status", "no-sort")
     }
     let status = column_table.getAttribute("status")
     if (status == "no-sort" || status == "reverse"){
@@ -102,8 +102,8 @@ function create_btn_pages(table){
         }
     }
     let buttons = document.querySelectorAll(".btn-pg")
-    for (element in buttons){
-        element.addEventListener('click',change_page(table,element))
+    for (let i=0;i<buttons.length;i+=1){
+        buttons[i].addEventListener('click',change_page(table,buttons[i]))
     }
 }
 function set_btn_func(table_data){
