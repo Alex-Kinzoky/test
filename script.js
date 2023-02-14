@@ -3,11 +3,11 @@ function print_table(table,start,end){
     table_html.innerHTML = ""
     for (i=start; i< end; i++){
         table_html.innerHTML += `<tr id=${i}>
-            <td class="fname-col">${table[i]["name"]["firstName"]}</td>
-            <td class="lname-col">${table[i]["name"]["lastName"]}</td>
-            <td class="phone-col">${table[i]["phone"]}</td>
-            <td class="about-value about-col">${table[i]["about"]}</td>
-            <td class="eyecolor-col"><div style="background-color:${table[i]["eyeColor"]}; width:20px; height:20px"></div></td>
+            <td class="0">${table[i]["name"]["firstName"]}</td>
+            <td class="1">${table[i]["name"]["lastName"]}</td>
+            <td class="2">${table[i]["phone"]}</td>
+            <td class="about-value 3">${table[i]["about"]}</td>
+            <td class="4"><div style="background-color:${table[i]["eyeColor"]}; width:20px; height:20px"></div></td>
         </tr>`
     }
     let rows = table_html.querySelectorAll("tr")
@@ -104,6 +104,21 @@ function create_btn_pages(table){
     let buttons = document.querySelectorAll(".btn-pg")
     for (let i=0;i<buttons.length;i+=1){
         buttons[i].addEventListener('click',function(){change_page(table,buttons[i])})
+    }
+}
+function col_visible(btn, col_num){
+    let active = btn.classList
+    let column = document.querySelectorAll(`.${col_num}`)
+    if ("active" in active){
+        btn.classList.remove("active")
+        for (let i=0;i<column.length;i+=1){
+            column[i].style.display = "block"
+        }
+    } else{
+        btn.classList.add("active")
+        for (let i=0;i<column.length;i+=1){
+            column[i].style.display = "none"
+        }
     }
 }
 function set_btn_func(table_data){
