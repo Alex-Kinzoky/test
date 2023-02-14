@@ -22,7 +22,7 @@ function make_massive(json){
 function get_table_data(){
     fetch('./data_table.json')
     .then(response => response.json())
-    .then(json => function(){
+    .then(json => {
         let table_data = []
         for (let i in json){
             table_data.push(
