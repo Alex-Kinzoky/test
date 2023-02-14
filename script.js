@@ -96,7 +96,7 @@ let table_test = [
 window.addEventListener('load', function () {
     //функция печати таблицы с данных массива
     
-    let table_data = get_table_data().then(function(){
+    get_table_data().then(table_data => {
         console.log(table_data)
         print_table(table_data)
     })
