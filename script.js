@@ -5,6 +5,7 @@ function print_table(table){
         table_html.innerHTML += `<tr id=${i}>
             <td>${table[i]["name"]["firstName"]}</td>
             <td>${table[i]["name"]["lastName"]}</td>
+            <td>${table[i]["phone"]}</td>
             <td class="about-value">${table[i]["about"]}</td>
             <td>${table[i]["eyeColor"]}</td>
         </tr>`
@@ -42,14 +43,16 @@ function print_row_info(event){
     let cells = event.target.parentNode.querySelectorAll("td")
     document.querySelector("#First-Name").value = cells[0].innerHTML
     document.querySelector("#Last-Name").value = cells[1].innerHTML
-    document.querySelector("#About").value = cells[2].innerHTML
-    document.querySelector("#Eye-Color").value = cells[3].innerHTML
+    document.querySelector("#Phone").value = cells[2].innerHTML
+    document.querySelector("#About").value = cells[3].innerHTML
+    document.querySelector("#Eye-Color").value = cells[4].innerHTML
     row_id = event.target.parentNode.getAttribute("id")
 }
 
 function save_change(table, index_row){
     table[index_row]["name"]["firstName"] = document.querySelector("#First-Name").value
     table[index_row]["name"]["lastName"] = document.querySelector("#Last-Name").value
+    table[index_row]["phone"] = document.querySelector("#Phone").value
     table[index_row]["about"] = document.querySelector("#About").value
     table[index_row]["eyeColor"] = document.querySelector("#Eye-Color").value
     print_table(table)
@@ -76,17 +79,19 @@ function get_table_data(){
         return table_data
     })
 }
-function set_btn_func(){
+function set_btn_func(table_data){
     //находим заголовки колонок и вешаем на них функцию сортировки при клике
     
     let firstname = document.querySelector(".firstname")
     firstname.addEventListener('click', function(){sort_column(table_data, "firstName", firstname)})
     let lastname = document.querySelector(".lastname")
     lastname.addEventListener('click', function(){sort_column(table_data, "lastName", lastname)})
+    let phone = document.querySelector(".phone")
+    phone.addEventListener('click', function(){sort_column(table_data, "phone", about)})
     let about = document.querySelector(".about")
-    firstname.addEventListener('click', function(){sort_column(table_data, "about", about)})
+    about.addEventListener('click', function(){sort_column(table_data, "about", about)})
     let eyecolor = document.querySelector(".eyecolor")
-    firstname.addEventListener('click', function(){sort_column(table_data, "eyeColor", eyecolor)})
+    eyecolor.addEventListener('click', function(){sort_column(table_data, "eyeColor", eyecolor)})
 
     let button_save = document.querySelector(".btn-save")
     button_save.addEventListener('click', function (){save_change(table_data, row_id)})
@@ -98,7 +103,7 @@ window.addEventListener('load', function () {
     let row_id = NaN
     get_table_data().then((table_data) => {
         print_table(table_data)
-        set_btn_func()
+        set_btn_func(table_data)
     })
     
     
