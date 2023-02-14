@@ -18,14 +18,20 @@ function print_table(table){
 function sort_column(table, column_name, column_table){
     let status = column_table.getAttribute("status")
     if (status == "no-sort" || status == "reverse"){
-        table.sort((x, y) => x[column_name].localeCompare(y[column_name]))
+        if (column_name == "firstName" || column_name == "lastName"){
+            table.sort((x, y) => x["name"][column_name].localeCompare(y["name"][column_name]))
+        } else{
+            table.sort((x, y) => x[column_name].localeCompare(y[column_name]))
+        }
         column_table.setAttribute("status","sort")
-        alert(column_table.getAttribute("status"))
         
     } else {
-        table.sort((x, y) => y[column_name].localeCompare(x[column_name]))
+        if (column_name == "firstName" || column_name == "lastName"){
+            table.sort((x, y) => y["name"][column_name].localeCompare(x["name"][column_name]))
+        } else{
+            table.sort((x, y) => y[column_name].localeCompare(x[column_name]))
+        }
         column_table.setAttribute("status","reverse")
-        alert(column_table.getAttribute("status"))
     }
     print_table(table)
 }
@@ -42,8 +48,8 @@ function print_row_info(event){
 }
 
 function save_change(table, index_row){
-    table[index_row]["firstName"] = document.querySelector("#First-Name").value
-    table[index_row]["lastName"] = document.querySelector("#Last-Name").value
+    table[index_row]["name"]["firstName"] = document.querySelector("#First-Name").value
+    table[index_row]["name"]["lastName"] = document.querySelector("#Last-Name").value
     table[index_row]["about"] = document.querySelector("#About").value
     table[index_row]["eyeColor"] = document.querySelector("#Eye-Color").value
     print_table(table)
@@ -67,41 +73,10 @@ function get_table_data(){
                 }
             )
         }
-        console.log(json)
-        console.log(table_data)
         return table_data
     })
 }
-
-let table_test = [
-    {
-        "firstName" : "Иван",
-        "lastName" : "Иванов",
-        "about" : "sdgsfgfdgdfg trydhth tvyrtybtu vrtyytrbuh  vtrybr ryjyyj",
-        "eyeColor" : "green"
-    },
-    {
-        "firstName" : "Александр",
-        "lastName" : "Иванов",
-        "about" : "sdgsfgfdgdfg",
-        "eyeColor" : "green"
-    },
-    {
-        "firstName" : "Петр",
-        "lastName" : "Иванов",
-        "about" : "sdgsfgfdgdfg",
-        "eyeColor" : "brown"
-    }
-]
-window.addEventListener('load', function () {
-    //функция печати таблицы с данных массива
-    
-    get_table_data().then((table_data) => {
-        console.log(table_data)
-        print_table(table_data)
-    })
-     //печатаем таблицу при загрузки страницы
-    let row_id = NaN
+function set_btn_func(){
     //находим заголовки колонок и вешаем на них функцию сортировки при клике
     
     let firstname = document.querySelector(".firstname")
@@ -117,5 +92,15 @@ window.addEventListener('load', function () {
     button_save.addEventListener('click', function (){save_change(table_data, row_id)})
     let button_cancel = document.querySelector('.btn-cancel')
     button_cancel.addEventListener('click', print_row_info)
+}
+
+window.addEventListener('load', function () {
+    let row_id = NaN
+    get_table_data().then((table_data) => {
+        print_table(table_data)
+        set_btn_func()
+    })
+    
+    
     
 })
