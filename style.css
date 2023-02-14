@@ -17,6 +17,7 @@ th{
     border: 1px solid #cacaca;
     width: 20%;
     background-color: #161a1e;
+    cursor: pointer;
 }
 td{
     border: 1px solid gray;
@@ -55,4 +56,17 @@ option{
     border: none;
     background-color: #4f5861;
     border-radius: 5px;
+}
+.btn-pages{
+    display: flex;
+}
+.btn-pg{
+    border: 1px solid #cacaca;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    background-color: #161a1e;
+}
+.active{
+    background-color: #4f5861;
 }

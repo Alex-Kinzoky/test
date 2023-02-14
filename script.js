@@ -79,6 +79,18 @@ function get_table_data(){
         return table_data
     })
 }
+function create_btn_pages(table){
+    let number_of_pages = Math.ceil(table.length/10)
+    console.log(number_of_pages)
+    let div_btn_pg = document.querySelector(".btn-pages")
+    for (let i = 0; i<=number_of_pages;i+=1){
+        if (i==1){
+            div_btn_pg.innerHTML += `<div class="btn-pg active">${i}</div>`
+        } else{
+            div_btn_pg.innerHTML += `<div class="btn-pg">${i}</div>`
+        }
+    }
+}
 function set_btn_func(table_data){
     //находим заголовки колонок и вешаем на них функцию сортировки при клике
     
@@ -104,6 +116,7 @@ window.addEventListener('load', function () {
     get_table_data().then((table_data) => {
         print_table(table_data)
         set_btn_func(table_data)
+        create_btn_pages(table_data)
     })
     
     
