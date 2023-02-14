@@ -7,7 +7,7 @@ function print_table(table,start,end){
             <td>${table[i]["name"]["lastName"]}</td>
             <td>${table[i]["phone"]}</td>
             <td class="about-value">${table[i]["about"]}</td>
-            <td>${table[i]["eyeColor"]}</td>
+            <td><div style="background-color:${table[i]["eyeColor"]}; width:20px; height:20px"></div></td>
         </tr>`
     }
     let rows = table_html.querySelectorAll("tr")
@@ -49,7 +49,7 @@ function print_row_info(event){
     document.querySelector("#Last-Name").value = cells[1].innerHTML
     document.querySelector("#Phone").value = cells[2].innerHTML
     document.querySelector("#About").value = cells[3].innerHTML
-    document.querySelector("#Eye-Color").value = cells[4].innerHTML
+    document.querySelector("#Eye-Color").value = cells[4].querySelector("div").style.backgroundColor
     row_id = event.target.parentNode.getAttribute("id")
 }
 
