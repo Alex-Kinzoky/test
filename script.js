@@ -49,7 +49,7 @@ function save_change(table, index_row){
     print_table(table)
 }
 function get_table_data(){
-    fetch('./data_table.json')
+    return fetch('./data_table.json')
     .then(response => response.json())
     .then(json => {
         let table_data = []
@@ -96,7 +96,7 @@ let table_test = [
 window.addEventListener('load', function () {
     //функция печати таблицы с данных массива
     
-    get_table_data().then(table_data => {
+    get_table_data().then((table_data) => {
         console.log(table_data)
         print_table(table_data)
     })
