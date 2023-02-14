@@ -38,7 +38,7 @@ function sort_column(table, column_name, column_table){
         }
         column_table.setAttribute("status","reverse")
     }
-    print_table(table,number_page,number_page+10)
+    print_table(table,number_page*10,number_page*10+10)
 }
 //функция отображения данных ряда в форме редактирования
 function print_row_info(event){
@@ -59,7 +59,7 @@ function save_change(table, index_row){
     table[index_row]["phone"] = document.querySelector("#Phone").value
     table[index_row]["about"] = document.querySelector("#About").value
     table[index_row]["eyeColor"] = document.querySelector("#Eye-Color").value
-    print_table(table,number_page,number_page+10)
+    print_table(table,number_page*10,number_page*10+10)
 }
 function get_table_data(){
     return fetch('./data_table.json')
@@ -89,7 +89,7 @@ function change_page(table,new_page_btn){
     let last_page = document.querySelector(".active")
     last_page.classList.remove("active")
     new_page_btn.classList.add("active")
-    print_table(table,number_page,number_page+10)
+    print_table(table,number_page*10,number_page*10+10)
 }
 function create_btn_pages(table){
     let number_of_pages = Math.ceil(table.length/10)
