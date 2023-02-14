@@ -3,11 +3,11 @@ function print_table(table,start,end){
     table_html.innerHTML = ""
     for (i=start; i< end; i++){
         table_html.innerHTML += `<tr id=${i}>
-            <td>${table[i]["name"]["firstName"]}</td>
-            <td>${table[i]["name"]["lastName"]}</td>
-            <td>${table[i]["phone"]}</td>
-            <td class="about-value">${table[i]["about"]}</td>
-            <td><div style="background-color:${table[i]["eyeColor"]}; width:20px; height:20px"></div></td>
+            <td class="fname-col">${table[i]["name"]["firstName"]}</td>
+            <td class="lname-col">${table[i]["name"]["lastName"]}</td>
+            <td class="phone-col">${table[i]["phone"]}</td>
+            <td class="about-value about-col">${table[i]["about"]}</td>
+            <td class="eyecolor-col"><div style="background-color:${table[i]["eyeColor"]}; width:20px; height:20px"></div></td>
         </tr>`
     }
     let rows = table_html.querySelectorAll("tr")
@@ -84,6 +84,7 @@ function get_table_data(){
     })
 }
 function change_page(table,new_page_btn){
+    console.log(new_page_btn)
     number_page = +new_page_btn.innerHTML
     let last_page = document.querySelector(".active")
     last_page.classList.remove("active")
@@ -92,7 +93,6 @@ function change_page(table,new_page_btn){
 }
 function create_btn_pages(table){
     let number_of_pages = Math.ceil(table.length/10)
-    console.log(number_of_pages)
     let div_btn_pg = document.querySelector(".btn-pages")
     for (let i = 1; i<=number_of_pages;i+=1){
         if (i==1){
