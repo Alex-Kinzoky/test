@@ -107,9 +107,9 @@ function create_btn_pages(table){
     }
 }
 function col_visible(btn, col_num){
-    let active = btn.classList
+    let active = btn.classList[1]
     let column = document.querySelectorAll(`.num${col_num}`)
-    if (active.includes("active-hide")){
+    if (active=="active-hide"){
         btn.classList.remove("active-hide")
         for (let i=0;i<column.length;i+=1){
             column[i].style.display = "block"
