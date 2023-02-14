@@ -64,7 +64,7 @@ function get_table_data(){
                 {
                     "id":json[i]["id"],
                     "name":{
-                        "firsName":json[i]["name"]["firstName"],
+                        "firstName":json[i]["name"]["firstName"],
                         "lastName":json[i]["name"]["lastName"]
                     },
                     "phone":json[i]["phone"],
