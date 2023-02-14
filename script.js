@@ -16,8 +16,8 @@ function print_table(table,start,end){
     }
 }
 //функция сортировки таблице по значениям колонки
-function sort_column(table, column_name, column_table){
-    let theads = document.querySelectorAll("thead")
+function sort_column(table, column_name, column_table, number_page){
+    let theads = document.querySelectorAll("th")
     for (let i=0;i<theads.length;i+=1){
         theads[i].setAttribute("status", "no-sort")
     }
@@ -129,15 +129,15 @@ function set_btn_func(table_data){
     //находим заголовки колонок и вешаем на них функцию сортировки при клике
     
     let firstname = document.querySelector(".firstname")
-    firstname.addEventListener('click', function(){sort_column(table_data, "firstName", firstname)})
+    firstname.addEventListener('click', function(){sort_column(table_data, "firstName", firstname, number_page)})
     let lastname = document.querySelector(".lastname")
-    lastname.addEventListener('click', function(){sort_column(table_data, "lastName", lastname)})
+    lastname.addEventListener('click', function(){sort_column(table_data, "lastName", lastname, number_page)})
     let phone = document.querySelector(".phone")
-    phone.addEventListener('click', function(){sort_column(table_data, "phone", about)})
+    phone.addEventListener('click', function(){sort_column(table_data, "phone", phone, number_page)})
     let about = document.querySelector(".about")
-    about.addEventListener('click', function(){sort_column(table_data, "about", about)})
+    about.addEventListener('click', function(){sort_column(table_data, "about", about, number_page)})
     let eyecolor = document.querySelector(".eyecolor")
-    eyecolor.addEventListener('click', function(){sort_column(table_data, "eyeColor", eyecolor)})
+    eyecolor.addEventListener('click', function(){sort_column(table_data, "eyeColor", eyecolor, number_page)})
 
     let button_save = document.querySelector(".btn-save")
     button_save.addEventListener('click', function (){save_change(table_data, row_id)})
