@@ -152,10 +152,10 @@ function set_btn_func(table_data, number_page){
         hide_col_btns[i].addEventListener('click', function(){col_visible(hide_col_btns[i],i)})
     }
 }
-
+let number_page = 0
 window.addEventListener('load', function () {
     let row_id = NaN
-    let number_page = 0
+    
     get_table_data().then((table_data) => {
         print_table(table_data,0,10)
         set_btn_func(table_data, number_page)
