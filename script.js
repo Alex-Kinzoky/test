@@ -19,7 +19,7 @@ function print_table(table,start,end){
 function sort_column(table, column_name, column_table, number_page){
     let theads = document.querySelectorAll("th")
     for (let i=0;i<theads.length;i+=1){
-        if (theads[i].classList[0] != column_name){
+        if (theads[i].classList[0] != column_name.toLowerCase()){
             theads[i].setAttribute("status", "no-sort")
         }
         
