@@ -90,7 +90,7 @@ function get_table_data(){
     })
 }
 function change_page(table,new_page_btn){
-    number_page = +new_page_btn.innerHTML -1
+    let number_page = +new_page_btn.innerHTML -1
     let last_page = document.querySelector(".active")
     last_page.classList.remove("active")
     new_page_btn.classList.add("active")
@@ -132,19 +132,19 @@ function col_visible(btn, col_num){
         }
     }
 }
-function set_btn_func(table_data, number_page){
+function set_btn_func(table_data){
     //находим заголовки колонок и вешаем на них функцию сортировки при клике
     
     let firstname = document.querySelector(".firstname")
-    firstname.addEventListener('click', function(){sort_column(table_data, "firstName", firstname, number_page)})
+    firstname.addEventListener('click', function(){sort_column(table_data, "firstName", firstname)})
     let lastname = document.querySelector(".lastname")
-    lastname.addEventListener('click', function(){sort_column(table_data, "lastName", lastname, number_page)})
+    lastname.addEventListener('click', function(){sort_column(table_data, "lastName", lastname)})
     let phone = document.querySelector(".phone")
-    phone.addEventListener('click', function(){sort_column(table_data, "phone", phone, number_page)})
+    phone.addEventListener('click', function(){sort_column(table_data, "phone", phone)})
     let about = document.querySelector(".about")
-    about.addEventListener('click', function(){sort_column(table_data, "about", about, number_page)})
+    about.addEventListener('click', function(){sort_column(table_data, "about", about)})
     let eyecolor = document.querySelector(".eyecolor")
-    eyecolor.addEventListener('click', function(){sort_column(table_data, "eyeColor", eyecolor, number_page)})
+    eyecolor.addEventListener('click', function(){sort_column(table_data, "eyeColor", eyecolor)})
 
     let button_save = document.querySelector(".btn-save")
     button_save.addEventListener('click', function (){save_change(table_data, row_id)})
@@ -162,7 +162,7 @@ window.addEventListener('load', function () {
     
     get_table_data().then((table_data) => {
         print_table(table_data,0,10)
-        set_btn_func(table_data, number_page)
+        set_btn_func(table_data)
         create_btn_pages(table_data)
     })
     
