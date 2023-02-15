@@ -95,6 +95,7 @@ function change_page(table,new_page_btn){
     last_page.classList.remove("active")
     new_page_btn.classList.add("active")
     print_table(table,number_page*10,number_page*10+10)
+    return number_page
 }
 function create_btn_pages(table){
     let number_of_pages = Math.ceil(table.length/10)
@@ -108,7 +109,7 @@ function create_btn_pages(table){
     }
     let buttons = document.querySelectorAll(".btn-pg")
     for (let i=0;i<buttons.length;i+=1){
-        buttons[i].addEventListener('click',function(){change_page(table,buttons[i])})
+        buttons[i].addEventListener('click',function(){number_page = change_page(table,buttons[i])})
     }
 }
 function col_visible(btn, col_num){
