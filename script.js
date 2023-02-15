@@ -1,3 +1,4 @@
+let number_page = 0
 function print_table(table,start,end){
     let table_html = document.querySelector(".body-table")
     table_html.innerHTML = ""
@@ -17,6 +18,7 @@ function print_table(table,start,end){
 }
 //функция сортировки таблице по значениям колонки
 function sort_column(table, column_name, column_table, number_page){
+    console.log(number_page)
     let theads = document.querySelectorAll("th")
     for (let i=0;i<theads.length;i+=1){
         if (theads[i].classList[0] != column_name.toLowerCase()){
@@ -154,7 +156,7 @@ function set_btn_func(table_data, number_page){
         hide_col_btns[i].addEventListener('click', function(){col_visible(hide_col_btns[i],i)})
     }
 }
-let number_page = 0
+
 window.addEventListener('load', function () {
     let row_id = NaN
     
