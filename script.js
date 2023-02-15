@@ -114,6 +114,7 @@ function col_visible(btn, col_num){
     let column = document.querySelectorAll(`.num${col_num}`)
     if (active=="active-hide"){
         btn.classList.remove("active-hide")
+        btn.innerHTML = btn.innerHTML.replace("Показать", "Скрыть")
         for (let i=0;i<column.length;i+=1){
             if (col_num == 3 && i !=0){
                 column[i].style.display = "-webkit-box"
@@ -123,6 +124,7 @@ function col_visible(btn, col_num){
         }
     } else{
         btn.classList.add("active-hide")
+        btn.innerHTML = btn.innerHTML.replace("Скрыть","Показать")
         for (let i=0;i<column.length;i+=1){
             column[i].style.display = "none"
         }
