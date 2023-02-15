@@ -1,4 +1,4 @@
-let number_page = 0
+
 function print_table(table,start,end){
     let table_html = document.querySelector(".body-table")
     table_html.innerHTML = ""
@@ -43,7 +43,8 @@ function sort_column(table, column_name, column_table, number_page){
         }
         column_table.setAttribute("status","reverse")
     }
-    print_table(table,number_page*10,number_page*10+10)
+    let btn_pg = document.querySelector(".btn-pg")
+    change_page(table,btn_pg)
 }
 //функция отображения данных ряда в форме редактирования
 function print_row_info(event){
@@ -89,13 +90,11 @@ function get_table_data(){
     })
 }
 function change_page(table,new_page_btn){
-    console.log(new_page_btn)
     number_page = +new_page_btn.innerHTML -1
     let last_page = document.querySelector(".active")
     last_page.classList.remove("active")
     new_page_btn.classList.add("active")
     print_table(table,number_page*10,number_page*10+10)
-    return number_page
 }
 function create_btn_pages(table){
     let number_of_pages = Math.ceil(table.length/10)
@@ -109,7 +108,7 @@ function create_btn_pages(table){
     }
     let buttons = document.querySelectorAll(".btn-pg")
     for (let i=0;i<buttons.length;i+=1){
-        buttons[i].addEventListener('click',function(){number_page = change_page(table,buttons[i])})
+        buttons[i].addEventListener('click',function(){change_page(table,buttons[i])})
     }
 }
 function col_visible(btn, col_num){
