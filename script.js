@@ -1,3 +1,5 @@
+let row_id = NaN
+let number_page = 0
 //функция отображения части таблицы на сайте
 function print_table(table,start,end){ //на вход получаем массив с данными, элемент с которого начинаем отображение таблицы и элемент следующий за последним
     let table_html = document.querySelector(".body-table")//находим тело таблицы
@@ -161,8 +163,7 @@ function set_btn_func(table_data){
 }
 
 window.addEventListener('load', function () {//когда прогрузится страница
-    let row_id = NaN
-    let number_page = 0
+    
     get_table_data().then((table_data) => {//ждем конца преобразования json файла в массив
         print_table(table_data,0,10)//печатаем первую страницу таблицы
         set_btn_func(table_data)//устанавливаем функции на клик по элементам
