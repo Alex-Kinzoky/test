@@ -5,7 +5,7 @@ function print_table(table,start,end){ //на вход получаем масс
     let table_html = document.querySelector(".body-table")//находим тело таблицы
     table_html.innerHTML = "" //очищаем от старых данных
     for (i=start; i< end; i++){ //проходимся циклам по нужным элеметам массива и добавляем данные в таблицу
-        table_html.innerHTML += `<tr id=${i+start}>
+        table_html.innerHTML += `<tr id=${i}>
             <td class="num0">${table[i]["name"]["firstName"]}</td>
             <td class="num1">${table[i]["name"]["lastName"]}</td>
             <td class="num2">${table[i]["phone"]}</td>
