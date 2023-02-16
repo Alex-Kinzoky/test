@@ -60,6 +60,14 @@ function print_row_info(event){
     document.querySelector("#Eye-Color").value = cells[4].querySelector("div").style.backgroundColor//для цвета глаз берем свойство цвета фона из вложенного div
     row_id = event.target.parentNode.getAttribute("id")//обновляем значение индекса строки
 }
+
+function cancel_edit(){
+    document.querySelector("#First-Name").value = cells[0].innerHTML//заполняем соответствующее поле формы данными из ячейки
+    document.querySelector("#Last-Name").value = cells[1].innerHTML
+    document.querySelector("#Phone").value = cells[2].innerHTML
+    document.querySelector("#About").value = cells[3].innerHTML
+    document.querySelector("#Eye-Color").value = cells[4].querySelector("div").style.backgroundColor//для цвета глаз берем свойство цвета фона из вложенного div
+}
 //функция сохранения изменений строки
 function save_change(table, index_row){//на вход получаем таблицу и индекс строки
     table[index_row]["name"]["firstName"] = document.querySelector("#First-Name").value//переписываем данные таблицы данными с формы редактирования
@@ -155,7 +163,7 @@ function set_btn_func(table_data){
     let button_save = document.querySelector(".btn-save")
     button_save.addEventListener('click', function (){save_change(table_data, row_id)})
     let button_cancel = document.querySelector('.btn-cancel')
-    button_cancel.addEventListener('click', print_row_info)
+    button_cancel.addEventListener('click', cancel_edit)
     //вешаем функцию на кнопки показа/скрытия колонок
     let hide_col_btns = document.querySelectorAll(".hide_btn")
     for (let i=0; i<hide_col_btns.length;i+=1){
