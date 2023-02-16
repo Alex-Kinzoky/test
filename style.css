@@ -58,15 +58,13 @@ td{
     padding: 10px;
     margin: 0 auto;
 }
-label{
-    margin: 5px 0;
-}
 input{
     display: block;
     border: 1px solid white;
     background-color: #4f5861;
     border-radius: 5px;
     padding: 3px;
+    margin: 5px 0;
 }
 select{
     display: block;

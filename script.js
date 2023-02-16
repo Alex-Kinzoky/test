@@ -25,6 +25,7 @@ function sort_column(table, column_name, column_table){//на вход полу�
     for (let i=0;i<theads.length;i+=1){//проходимся по ним циклам
         if (theads[i].classList[0] != column_name.toLowerCase()){//если класс заголовка колонки не совпадает с именем колонки
             theads[i].setAttribute("status", "no-sort")//меняем атрибут status на no-sort
+            theads[i].querySelector("img").setAttribute("src", "")//удаляем стрелку
         }
         
     }
@@ -36,6 +37,8 @@ function sort_column(table, column_name, column_table){//на вход полу�
             table.sort((x, y) => x[column_name].localeCompare(y[column_name]))//иначе просто сортируем по алфавиту
         }
         column_table.setAttribute("status","sort")//меняем статус на "sort"
+        column_table.querySelector("img").setAttribute("src", "./arrow.png")//добавляем стрелку
+        column_table.querySelector("img").style.rotate = "180deg"//поварачиваем ее вниз
         
     } else {//если статус будет "sort" 
         if (column_name == "firstName" || column_name == "lastName"){//если значения колонки вложены в объект "name" объектов массива
@@ -44,6 +47,7 @@ function sort_column(table, column_name, column_table){//на вход полу�
             table.sort((x, y) => y[column_name].localeCompare(x[column_name]))//иначе просто сортируем по алфавиту в обратном порядке
         }
         column_table.setAttribute("status","reverse")//ставим статус "reverse"
+        column_table.querySelector("img").style.rotate = "0deg"//поварачиваем стрелку вверх
     }
     let btn_pg = document.querySelector(".btn-pg")//получаем кнопку переключения на 1 страницу
     change_page(table,btn_pg)//вызываем функцию переключения страницы
