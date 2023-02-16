@@ -1,5 +1,6 @@
 let row_id = NaN
 let number_page = 0
+let cells = NaN
 //функция отображения части таблицы на сайте
 function print_table(table,start,end){ //на вход получаем массив с данными, элемент с которого начинаем отображение таблицы и элемент следующий за последним
     let table_html = document.querySelector(".body-table")//находим тело таблицы
@@ -51,7 +52,7 @@ function sort_column(table, column_name, column_table){//на вход полу�
 function print_row_info(event){
     let form = document.querySelector('.form')//записываем форму для редактированния данных в переменную
     form.style.display = "block"//включаем ее отображение
-    let cells = event.target.parentNode.querySelectorAll("td")//из ряда по которому кликнули берем все ячейки
+    cells = event.target.parentNode.querySelectorAll("td")//из ряда по которому кликнули берем все ячейки
     document.querySelector("#First-Name").value = cells[0].innerHTML//заполняем соответствующее поле формы данными из ячейки
     document.querySelector("#Last-Name").value = cells[1].innerHTML
     document.querySelector("#Phone").value = cells[2].innerHTML
