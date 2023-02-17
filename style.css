@@ -99,3 +99,7 @@ option{
 .active{
     background-color: #4f5861;
 }
+th img{
+    width: 20px;
+    margin: 0 5px;
+}
